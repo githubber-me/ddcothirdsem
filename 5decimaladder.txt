@@ -1,0 +1,28 @@
+//Verilog
+module bcd_adder ( input [3:0] a, b, input carry_in, output reg [3:0] sum, output reg
+carry);
+    reg [3:0] sum_temp;
+    always @(a, b, carry_in)
+    begin
+        sum_temp = a + b + carry_in; 
+        if (sum_temp > 9) begin
+        sum_temp = sum_temp + 6;
+        carry = 1; 
+    end
+    else begin
+        carry = 0;
+    end
+        sum = sum_temp[3:0];
+    end
+endmodule
+
+//Test Bench
+initial begin
+    a = 0;
+    b = 0;
+    carry_in = 0;
+    #100;
+end
+    always #10 b = b+1;
+    always #20 a = a+1;
+endmodule

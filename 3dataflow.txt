@@ -1,0 +1,23 @@
+"DATAFLOW"
+
+//Verilog
+module mux4x1(input I0,I1,I2,I3,S0,S1, output Y);
+    wire w1,w2;
+    assign w1 = (~S0 & I0) | (S0 & I1);
+    assign w2 = (~S0 & I2) | (S0 & I3);
+    assign Y = (~S1 & w1) | (S1 & w2);
+endmodule
+
+//Test Bench
+initial begin
+    I0=0; I1 = 1;
+    I2 = 1; I3 =0;
+    S0=0; S1=0;
+end
+    always #100 I0 = ~I0;
+    always #100 I1=~I1
+    always #100 I2 = ~I2;
+    always #100 I3=~I3;
+    always #20 S0=~S0;
+    always #10 s1 = ~s1;
+endmodule

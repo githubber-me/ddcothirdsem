@@ -1,0 +1,16 @@
+//Verilog
+module full_adder(input a,b,cin,output sum,carry);
+    assign sum = a ^ b ^ cin;
+    assign carry = (a & b) | (b & cin) | (cin & a) ;
+endmodule
+
+//Test Bench
+initial begin
+    a =0 ; 
+    b= 0;
+    c = 0;
+end
+    always #40 a = a+1’b1;
+    always #20 b = b+1’b1;
+    always #10 c = c+1’b1;
+endmodule

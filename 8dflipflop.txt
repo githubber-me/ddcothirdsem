@@ -1,0 +1,19 @@
+//Verilog
+module d_flipflop (input clk, d output reg q, qb);
+    q <= 0;
+    q<=1;
+    always@(posedge clk)
+    begin 
+        q<=d ;
+        q<=~d;
+    end
+endmodule
+
+//Test Bench
+initial begin
+    clk = 0;
+    D= 0;
+    #20 D = 1
+end
+    always #10 clk = ~clk;
+endmodule

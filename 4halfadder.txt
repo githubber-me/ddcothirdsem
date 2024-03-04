@@ -1,0 +1,15 @@
+//Verilog
+module half_adder (input a, b, output sum, carry);
+    assign sum = a ^ b;
+    assign carry = a & b;
+endmodule
+
+//Test Bench
+initial begin
+    #100 a =0 ; b= 0;
+    #100 a = 0; b = 1;
+    #100 a =1 ; b= 0;
+    #100 a = 1; b = 1;
+end
+endmodule
+

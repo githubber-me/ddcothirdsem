@@ -1,0 +1,14 @@
+//Verilog
+module demux_2_1(input s0, a, output y0, y1);
+    assign y0 =~s0 & a;
+    assign y1 =s0 & a;
+endmodule
+
+//Test Bench
+initial begin
+    s0=0 ; a =1;
+    #50 s0=0 ; a =0;
+    #50 s0=1 ; a =1;
+    #50 s0=1 ; a =0;
+end
+endmodule

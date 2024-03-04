@@ -1,0 +1,19 @@
+//Verilog
+module demux_1_4(input [1:0] sel,input a,output reg [3:1] y);
+    always @(*)
+    begin
+        assign y[0] = ~s[1] & ~s[0] & a;
+        assign y[1] = ~s[1] & s[0] & a;
+        assign y[2] = s[1] & ~s[0] & a;
+        assign y[3] = s[1] & s[0] & a;
+    end
+endmodule
+
+//Test Bench
+initial begin
+    a = 0;
+    s= 2’b00;
+end
+    always #10 s = s+1;
+    always #40 a= ~a;
+endmodule

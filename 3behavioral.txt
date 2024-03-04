@@ -1,0 +1,20 @@
+//Verilog
+module mux2x1( input I0, I1, S,output reg Y);
+    always @ (*) beginif (S)
+        Y = I1;
+        else
+        Y = I0;
+    end
+endmodule
+
+//Test Bench
+initial begin
+    I0=0;
+    I1 = 1;
+    S=0;
+end
+    always #100 I0 = ~I0;
+    always #100 I1=~I1
+    always #20 s=~s;
+endmodule
+

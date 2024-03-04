@@ -1,0 +1,25 @@
+//Verilog
+module eighttoone (input [7:0] I, input [2:0] sel, output reg out);
+    always @ (a, b, c, sel)
+    begin
+        case(sel)
+            3'b000 : out = I[0];
+            3'b001 : out = I[1];
+            3'b010 : out = I[2];
+            3'b011 : out = I[3];
+            3'b100 : out = I[4];
+            3'b101 : out = I[5];
+            3'b110 : out = I[6];
+            3'b111 : out = I[7];
+            default : out =1’bx;
+        endcase
+    end
+endmodule
+
+//Test Bench
+initial begin
+    I = 8’b00110111;
+    S=3’b000;
+end
+    always #20 s = s+1;
+endmodule

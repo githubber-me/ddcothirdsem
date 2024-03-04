@@ -1,0 +1,18 @@
+//Verilog
+module m41 ( input I3, I2, I1, I0, input s0, s1,output y);
+    assign y = s1 ? (s0 ? I0 : I1) : (s0 ? I2 : I3);
+endmodule
+
+//Test Bench
+initial begin
+    I0=0; I1 = 1;
+    I2 = 1; I3 =0;
+    S0=0; S1=0;
+end
+    always #100 I0 = ~I0;
+    always #100 I1=~I1
+    always #100 I2 = ~I2;
+    always #100 I3=~I3
+    always #20 S0=~S0;
+    always #10 s1 = ~s1
+endmodule

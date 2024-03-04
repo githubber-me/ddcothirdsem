@@ -1,0 +1,8 @@
+module 4variable(input A, B, C, D, ouput F);
+    wire o1, o2, o3, o4;
+    assign o1 = A & C;
+    assign o2 = !B & C;
+    assign o3 = !B & !D;
+    assign o4 = !A & B & D;
+    assign F = o1 | o2 | o3 | o4;
+endmodule

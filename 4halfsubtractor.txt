@@ -1,0 +1,14 @@
+//Verilog
+module half_subtractor(input a, b,output difference, borrow);
+    assign difference = a ^ b;
+    assign borrow = ~a & b;
+endmodule
+
+//Test Bench
+initial begin
+    #100 a =0 ; b= 0;
+    #100 a = 0; b = 1;
+    #100 a =1 ; b= 0;
+    #100 a = 1; b = 1;
+end
+endmodule
